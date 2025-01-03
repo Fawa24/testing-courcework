@@ -1,0 +1,16 @@
+﻿@using ErrorsChecker.Controllers
+@{
+    Layout = null;
+}
+
+<h2>Syntax Analyzer</h2>
+
+<form action="/analyzer" method="get">
+    <div>
+        <label for="codeToCheck">Enter Code:</label>
+        <textarea style="width: 1500px; height: 800px;" id="codeToCheck" name="codeToCheck" rows="10" cols="50" required></textarea>
+    </div>
+    <div>
+        <button type="submit">Analyze</button>
+    </div>
+</form>

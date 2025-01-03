@@ -1,0 +1,32 @@
+﻿@using ErrorsChecker.Controllers
+@model ResultModel
+
+<a href="/">Back to home</a>
+
+<h2>Analysis Results</h2>
+
+<pre><code>
+@{
+    var lines = Model.Code.Split('\n');
+    int lineNumber = 1;
+    foreach (var line in lines)
+    {
+        <span>@lineNumber.ToString():</span>    @line <br />
+        lineNumber++;
+    }
+}
+</code></pre>
+
+@if (Model != null && Model.Errors.Any())
+{
+    <ul>
+        @foreach (var error in Model.Errors)
+        {
+            <li>@error</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No syntax errors found!</p>
+}
